@@ -1,0 +1,18 @@
+version: '3.6'
+#sudo chown 1001 haproxy
+services:
+  dev-haproxy:
+    image: 'haproxy'
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+      - 8868:8868
+      - 8545:8545
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy:ro
+    logging:
+      options:
+        max-size: "1m"
+        max-file: "1"
+
