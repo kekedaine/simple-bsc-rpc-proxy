@@ -3,7 +3,6 @@
 ```
 sudo apt-get install nodejs
 npm i pm2 -g
-
 ```
 
 ```
