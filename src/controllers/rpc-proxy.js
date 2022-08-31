@@ -8,6 +8,8 @@ function randomInteger(min, max) {
 
 let id = randomInteger(100, 9999)
 
+const requestStats = {}
+exports.requestStats = requestStats
 exports.post = async (req, res) => {
     const { body, headers } = req
 
@@ -27,6 +29,19 @@ exports.post = async (req, res) => {
         },
         data: body,
     })
+
+    if (!requestStats[body.method]) {
+        requestStats[body.method] = {
+            ok: 0,
+            non_ok: 0,
+        }
+    }
+
+    if (data.status === 200) {
+        requestStats[body.method].ok += 1
+    } else {
+        requestStats[body.method].non_ok += 1
+    }
 
     // console.log(data)
     // console.log(data.status)

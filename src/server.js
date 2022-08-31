@@ -8,6 +8,8 @@ const app = express()
 
 const route = require('./router')
 
+const RpcProxyCtl = require('./controllers/rpc-proxy')
+
 app.use(errorhandler())
 app.use(bodyParser.json())
 app.use(compression())
@@ -25,6 +27,7 @@ app.get('/healthz', (req, res) => {
     res.json({
         is_success: true,
         message: 'ok',
+        requestStats: RpcProxyCtl.requestStats,
     })
 })
 app.use((err, req, res, next) => {
