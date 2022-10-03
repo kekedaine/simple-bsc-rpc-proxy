@@ -11,7 +11,7 @@ module.exports = {
                 PORT: 3001,
                 NODE_ENV: 'production',
                 SERVICE_NAME: 'arb-rpc',
-                RPC_ORIGIN: 'https://bsc-dataseed.binance.org',
+                RPC_ORIGIN: 'https://arb1.arbitrum.io/rpc',
                 IS_ENABLE_ETHERJS: 'true',
             },
         },
