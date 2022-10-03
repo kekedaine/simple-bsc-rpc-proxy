@@ -2,7 +2,7 @@ module.exports = {
     apps: [
         {
             name: 'rpc_proxy_service_arb',
-            max_memory_restart: '900M',
+            max_memory_restart: '400M',
             autorestart: true,
             script: './src/index.js',
             out_file: '/dev/null',
