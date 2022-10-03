@@ -27,7 +27,7 @@ app.get('/healthz', (req, res) => {
     res.json({
         is_success: true,
         message: 'ok',
-        requestStats: RpcProxyCtl.requestStats,
+        requestStats: Object.fromEntries(Object.entries(RpcProxyCtl.requestStats).sort()),
     })
 })
 app.use((err, req, res, next) => {

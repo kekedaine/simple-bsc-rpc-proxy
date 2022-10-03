@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-shadow */
 const axios = require('axios')
+const {RPC_ORIGIN} = require('../utils/configs')
 
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -23,7 +24,8 @@ exports.post = async (req, res) => {
 
     const data = await axios({
         method: 'post',
-        url: 'https://bsc-dataseed.binance.org',
+        url: RPC_ORIGIN,
+        withCredentials: false,
         headers: {
             'Content-Type': 'application/json',
         },
@@ -37,15 +39,10 @@ exports.post = async (req, res) => {
         }
     }
 
-    if (data.status === 200) {
+    if (!data.data?.error) {
         requestStats[body.method].ok += 1
     } else {
         requestStats[body.method].non_ok += 1
     }
-
-    // console.log(data)
-    // console.log(data.status)
-    // console.log(data.data)
-
     res.status(data.status).json(data.data)
 }
