@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-shadow */
 const axios = require('axios')
-const {RPC_ORIGIN} = require('../utils/configs')
+const { RPC_ORIGIN } = require('../utils/configs')
 
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -22,6 +22,7 @@ exports.post = async (req, res) => {
         body.id = id
     }
 
+    // console.log('body: ', body)
     const data = await axios({
         method: 'post',
         url: RPC_ORIGIN,
