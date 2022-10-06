@@ -11,13 +11,15 @@ const route = require('./router')
 const RpcProxyCtl = require('./controllers/rpc-proxy')
 
 app.use(errorhandler())
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '50mb' }))
 app.use(compression())
 app.use(cors())
 
 app.use(
     bodyParser.urlencoded({
         extended: true,
+        limit: '50mb',
+        parameterLimit: 50000,
     })
 )
 
