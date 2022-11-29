@@ -11,7 +11,7 @@ module.exports = {
                 PORT: 3000,
                 NODE_ENV: 'production',
                 SERVICE_NAME: 'bsc-rpc',
-                RPC_ORIGIN: 'https://bsc-dataseed.binance.org',
+                RPC_ORIGIN: 'https://bscrpc.com',
                 IS_ENABLE_ETHERJS: 'true',
             },
         },
